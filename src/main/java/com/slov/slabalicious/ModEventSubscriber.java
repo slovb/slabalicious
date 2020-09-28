@@ -1,6 +1,9 @@
 package com.slov.slabalicious;
 
 import com.slov.slabalicious.init.ModBlocks;
+import com.slov.slabalicious.objects.blocks.CoarseDirtSlab;
+import com.slov.slabalicious.objects.blocks.DirtSlab;
+import com.slov.slabalicious.objects.blocks.GrassSlab;
 import com.slov.slabalicious.objects.blocks.GravelSlab;
 
 import net.minecraft.block.Block;
@@ -22,17 +25,29 @@ public class ModEventSubscriber {
 	@SubscribeEvent
 	public static void onRegisterItems(RegistryEvent.Register<Item> event) {
 		event.getRegistry().registerAll(
-			setup(new BlockItem(ModBlocks.GRAVEL_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)), "gravel_slab")
-		);
+				setup(new BlockItem(ModBlocks.COARSE_DIRT_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)),
+						"coarse_dirt_slab"),
+				setup(new BlockItem(ModBlocks.DIRT_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)),
+						"dirt_slab"),
+				setup(new BlockItem(ModBlocks.GRASS_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)),
+						"grass_slab"),
+				setup(new BlockItem(ModBlocks.GRAVEL_SLAB, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)),
+						"gravel_slab"));
 	}
-	
+
 	@SubscribeEvent
 	public static void onRegisterBlocks(RegistryEvent.Register<Block> event) {
 		event.getRegistry().registerAll(
-			setup(new GravelSlab(Block.Properties.create(Material.SAND, MaterialColor.STONE).hardnessAndResistance(0.6F).sound(SoundType.GROUND)), "gravel_slab")
-		);
+				setup(new CoarseDirtSlab(Block.Properties.create(Material.EARTH, MaterialColor.DIRT)
+						.hardnessAndResistance(0.5F).sound(SoundType.GROUND)), "coarse_dirt_slab"),
+				setup(new DirtSlab(Block.Properties.create(Material.EARTH, MaterialColor.DIRT)
+						.hardnessAndResistance(0.5F).sound(SoundType.GROUND)), "dirt_slab"),
+				setup(new GrassSlab(Block.Properties.create(Material.ORGANIC)
+						.hardnessAndResistance(0.6F).sound(SoundType.PLANT)), "grass_slab"),
+				setup(new GravelSlab(Block.Properties.create(Material.SAND, MaterialColor.STONE)
+						.hardnessAndResistance(0.6F).sound(SoundType.GROUND)), "gravel_slab"));
 	}
-	
+
 	public static <T extends IForgeRegistryEntry<T>> T setup(final T entry, final String name) {
 		return setup(entry, new ResourceLocation(Slabalicious.MODID, name));
 	}

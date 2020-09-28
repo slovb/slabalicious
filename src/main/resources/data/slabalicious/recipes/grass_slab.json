@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "___"
+  ],
+  "key": {
+    "_": {
+       "item": "slabalicious:dirt_slab"
+     }
+  },
+  "result": {
+    "item": "slabalicious:grass_slab",
+    "count": 3
+  }
+}

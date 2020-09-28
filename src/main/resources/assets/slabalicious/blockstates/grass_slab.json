@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "type=bottom": { "model": "slabalicious:block/grass_slab" },
+        "type=top": { "model": "slabalicious:block/grass_slab_top" },
+        "type=double": { "model": "block/grass_block" }
+    }
+}
