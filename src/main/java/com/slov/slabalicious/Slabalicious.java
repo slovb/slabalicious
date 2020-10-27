@@ -19,8 +19,8 @@ import com.slov.slabalicious.init.ModItems;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(Slabalicious.MODID)
-public class Slabalicious
-{
+public class Slabalicious {
+	
 	public static final String MODID = "slabalicious";
 	
     // Directly reference a log4j logger.

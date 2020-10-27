@@ -6,9 +6,9 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
 
-public class CoarseDirtSlab extends SlabBlock {
-	
-	public CoarseDirtSlab() {
-		super(Block.Properties.create(Material.EARTH, MaterialColor.DIRT).hardnessAndResistance(0.5F).sound(SoundType.GROUND));
+public class GravelSlabBlock extends SlabBlock {
+
+	public GravelSlabBlock() {
+		super(Block.Properties.create(Material.SAND, MaterialColor.STONE).hardnessAndResistance(0.6F).sound(SoundType.GROUND));
 	}
 }

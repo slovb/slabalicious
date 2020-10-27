@@ -9,9 +9,9 @@ import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.SlabType;
 import net.minecraft.util.BlockRenderLayer;
 
-public class GrassSlab extends SlabBlock {
+public class GrassSlabBlock extends SlabBlock {
 
-	public GrassSlab() {
+	public GrassSlabBlock() {
 		super(Block.Properties.create(Material.ORGANIC).hardnessAndResistance(0.6F).sound(SoundType.PLANT));
 		this.setDefaultState(
 				this.getDefaultState().with(TYPE, SlabType.BOTTOM).with(WATERLOGGED, Boolean.valueOf(false)));
