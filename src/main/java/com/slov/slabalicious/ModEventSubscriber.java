@@ -14,6 +14,9 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.GrassColors;
+import net.minecraft.world.biome.BiomeColors;
+import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
@@ -47,7 +50,21 @@ public class ModEventSubscriber {
 				setup(new GravelSlab(Block.Properties.create(Material.SAND, MaterialColor.STONE)
 						.hardnessAndResistance(0.6F).sound(SoundType.GROUND)), "gravel_slab"));
 	}
+	
+	@SubscribeEvent
+	public static void onRegisterBlockColors(ColorHandlerEvent.Block event) {
+		event.getBlockColors().register((p_210225_0_, p_210225_1_, p_210225_2_, p_210225_3_) -> {
+         return p_210225_1_ != null && p_210225_2_ != null ? BiomeColors.getGrassColor(p_210225_1_, p_210225_2_) : GrassColors.get(0.5D, 1.0D);
+      }, ModBlocks.GRASS_SLAB);
+	}
 
+	@SubscribeEvent
+	public static void onRegisterItemColors(ColorHandlerEvent.Item event) {
+		event.getItemColors().register((p_210236_0_, p_210236_1_) -> {
+	         return GrassColors.get(0.5D, 1.0D);
+	      }, ModBlocks.GRASS_SLAB);
+	}
+	
 	public static <T extends IForgeRegistryEntry<T>> T setup(final T entry, final String name) {
 		return setup(entry, new ResourceLocation(Slabalicious.MODID, name));
 	}

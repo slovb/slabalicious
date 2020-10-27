@@ -14,6 +14,6 @@ public class Slabalicious
     public static final Logger LOGGER = LogManager.getLogger();
 
     public Slabalicious() {
-
+    	
     }
 }
