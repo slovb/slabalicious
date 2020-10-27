@@ -16,6 +16,8 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.GrassColors;
 import net.minecraft.world.biome.BiomeColors;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -51,6 +53,7 @@ public class ModEventSubscriber {
 						.hardnessAndResistance(0.6F).sound(SoundType.GROUND)), "gravel_slab"));
 	}
 	
+	@OnlyIn(Dist.CLIENT)
 	@SubscribeEvent
 	public static void onRegisterBlockColors(ColorHandlerEvent.Block event) {
 		event.getBlockColors().register((blockState, enviromentalBlockReader, blockPos, i) -> {
@@ -58,6 +61,7 @@ public class ModEventSubscriber {
       }, ModBlocks.GRASS_SLAB);
 	}
 
+	@OnlyIn(Dist.CLIENT)
 	@SubscribeEvent
 	public static void onRegisterItemColors(ColorHandlerEvent.Item event) {
 		event.getItemColors().register((itemStack, i) -> {

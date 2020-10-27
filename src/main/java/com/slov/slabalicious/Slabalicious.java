@@ -11,7 +11,7 @@ public class Slabalicious
 	public static final String MODID = "slabalicious";
 	
     // Directly reference a log4j logger.
-    public static final Logger LOGGER = LogManager.getLogger();
+    public static final Logger LOGGER = LogManager.getLogger(MODID);
 
     public Slabalicious() {
     	
